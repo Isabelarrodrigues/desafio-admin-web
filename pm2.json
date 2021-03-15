@@ -1,0 +1,15 @@
+{
+  "apps": [
+    {
+      "name": "server",
+      "script": "./server/build/index.js",
+      "node_args": "--max_old_space_size=8192",
+      "env": {
+        "NODE_ENV": "development"
+      },
+      "env_production": {
+        "NODE_ENV": "production"
+      }
+    }
+  ]
+}

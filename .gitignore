@@ -1,0 +1,9 @@
+# dependencies
+node_modules
+
+# production
+/build
+
+# server
+/server/node_modules
+/server/build

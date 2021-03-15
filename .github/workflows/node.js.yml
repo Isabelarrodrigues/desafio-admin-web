@@ -1,0 +1,23 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.12
+        # with:
+        #   heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+        #   heroku_app_name: "nome-do-meu-app"
+        #   heroku_email: "meu-email"
