@@ -3,11 +3,20 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import Users from './components/Users/Users';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <BrowserRouter>
+    <Switch>
+      <Route exact path="/">
+        <App />
+      </Route>
+    </Switch>
+    <Route path="/users">
+        <Users />
+      </Route>
+  </BrowserRouter>,
   document.getElementById('root')
 );
 
