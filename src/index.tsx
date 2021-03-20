@@ -12,10 +12,10 @@ ReactDOM.render(
       <Route exact path="/">
         <App />
       </Route>
-    </Switch>
-    <Route path="/users">
+      <Route path="/users">
         <Users />
       </Route>
+    </Switch>
   </BrowserRouter>,
   document.getElementById('root')
 );
