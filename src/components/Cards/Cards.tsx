@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import ReqUsers from '../Model/ReqUsers'
+import styled from 'styled-components'
 
 interface CardsTypes {
     createdAt: string
@@ -14,7 +15,36 @@ interface CardsTypes {
 }
 function Cards() {
     document.title = 'Cartões'
-    
+    // style
+    const CardStyle = styled.div`
+        background-color: #02C06C;
+        width: 500px;
+        height: 260px;
+        border-radius: 16px;
+        position: relative;
+        p.status {
+            font-size: 1.2rem;
+            position: absolute;
+            top: 0;
+            right: 15px;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            position: absolute;
+            bottom: 80px;
+            left: 15px;
+            text-transform: uppercase;
+        }
+
+        p.digits {
+            font-size: 2rem;
+            position: absolute;
+            bottom: 20px;
+            left: 15px
+        }
+    `
+
     const [cards, setCards] = useState([])
 
     useEffect(
@@ -61,13 +91,15 @@ function Cards() {
                     const updated = brazilianDateHour('Atualizado em', index.updatedAt, 'atualização')
                     const name = nameValidation(index.metadatas.name)
                     
-                    return ( 
-                        <div key={index.id} style={{border: '1px solid lightblue'}}>
-                            <p>{`${name}`}</p>
+                    return (
+                        <div>
+                            <CardStyle key={index.id} style={{border: '1px solid lightblue'}}>
+                                <p className="status" title="Status">{`${index.status}`}</p>
+                                <h2>{`${name}`}</h2>
+                                <p className="digits">{`XXXX XXXX XXXX ${index.metadatas.digits}`}</p>
+                            </CardStyle>
                             <p>{`${created}`}</p>
                             <p>{`${updated}`}</p>
-                            <p>{`Status: ${index.status}`}</p>
-                            <p>{`Dígitos: ${index.metadatas.digits}`}</p>
                             <p>{`Limite: ${(index.metadatas.limit).toLocaleString('pt-BR')},00`}</p>
                         </div>
                     )
