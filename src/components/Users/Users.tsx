@@ -27,7 +27,7 @@ function Users() {
 
     useEffect(
     () => {
-        ReqUsers()
+        ReqUsers('users')
             .then(data => setUsers(data))
     }, [])
 
