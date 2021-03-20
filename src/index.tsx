@@ -1,10 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import './index.css'
+import App from './App'
+import reportWebVitals from './reportWebVitals'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import Users from './components/Users/Users';
+import Users from './components/Users/Users'
+import Cards from './components/Cards/Cards'
 
 ReactDOM.render(
   <BrowserRouter>
@@ -14,6 +15,9 @@ ReactDOM.render(
       </Route>
       <Route path="/users">
         <Users />
+      </Route>
+      <Route path="/cards">
+        <Cards />
       </Route>
     </Switch>
   </BrowserRouter>,
