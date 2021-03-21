@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import ReqUsers from '../Model/ReqUsers'
 import styled from 'styled-components'
+import logo from '../../img/logo-stone.png'
 
 interface CardsTypes {
     createdAt: string
@@ -16,32 +17,116 @@ interface CardsTypes {
 function Cards() {
     document.title = 'Cartões'
     // style
+    const DivCard = styled.div`
+        display: flex;
+
+        div.info {
+            display: grid;
+            place-items: center;
+            
+            position: absolute;
+            left: 75px;
+            height: 260px;
+            padding: 0 30px;
+            background-color: #c4c4c4;
+            border-radius: 0 16px 16px 0;
+            z-index: 2;
+            transition: 1s ease left
+        }
+
+        div.info:hover {
+            left: 515px;
+        }
+        
+        div.info h3 {
+            font-size: 1.4rem;
+            font-weight: 500;
+        }
+        div.info p {
+            font-weight: 400;
+        }
+        
+        div.card {
+            background-color: #02C06C;
+            width: 500px;
+            height: 260px;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            left: 50px;
+            margin-bottom: 15px;
+            z-index: 3;
+        }
+        
+        div.card img {
+            position: absolute;
+            top: 8px;
+            left: 18px
+        }
+        div.card p.status {
+            font-size: 1.2rem;
+            color: #2c2c2c;
+            position: absolute;
+            top: 14px;
+            right: 20px;
+        }
+
+        div.card h2 {
+            font-size: 1.6rem;
+            letter-spacing: 1.2px;
+            color: #0c0c0c;
+            position: absolute;
+            bottom: 70px;
+            left: 18px;
+            text-transform: uppercase;
+        }
+
+        div.card p.digits {
+            font-size: 2rem;
+            color: #1f1f1f;
+            position: absolute;
+            bottom: 20px;
+            left: 18px
+        }
+    `
     const CardStyle = styled.div`
         background-color: #02C06C;
         width: 500px;
         height: 260px;
         border-radius: 16px;
+        overflow: hidden;
         position: relative;
+        z-index: 3;
+
+        img {
+            position: absolute;
+            top: 8px;
+            left: 18px
+        }
         p.status {
             font-size: 1.2rem;
+            color: #2c2c2c;
             position: absolute;
-            top: 0;
-            right: 15px;
+            top: 14px;
+            right: 20px;
         }
 
         h2 {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
+            letter-spacing: 1.2px;
+            color: #0c0c0c;
             position: absolute;
-            bottom: 80px;
-            left: 15px;
+            bottom: 70px;
+            left: 18px;
             text-transform: uppercase;
         }
 
         p.digits {
             font-size: 2rem;
+            color: #1f1f1f;
             position: absolute;
             bottom: 20px;
-            left: 15px
+            left: 18px
         }
     `
 
@@ -92,15 +177,22 @@ function Cards() {
                     const name = nameValidation(index.metadatas.name)
                     
                     return (
-                        <div>
-                            <CardStyle key={index.id} style={{border: '1px solid lightblue'}}>
+                        <div className="containerCard" style={{margin: '0 auto'}}>
+                        <DivCard>
+                            <div className="card" key={index.id} style={{border: '1px solid lightblue'}}>
+                                <img src={logo} style={{width: '85px'}} alt=""/>
                                 <p className="status" title="Status">{`${index.status}`}</p>
                                 <h2>{`${name}`}</h2>
                                 <p className="digits">{`XXXX XXXX XXXX ${index.metadatas.digits}`}</p>
-                            </CardStyle>
-                            <p>{`${created}`}</p>
-                            <p>{`${updated}`}</p>
-                            <p>{`Limite: ${(index.metadatas.limit).toLocaleString('pt-BR')},00`}</p>
+                            </div>
+                            <div className="info" style={{marginLeft: '15px'}}>
+                                <div>
+                                    <h3>{`${created}`}</h3>
+                                    <p>{`${updated}`}</p>
+                                    <p>Limite: <strong>{`${(index.metadatas.limit).toLocaleString('pt-BR')},00`}</strong></p>
+                                </div>
+                            </div>
+                        </DivCard>
                         </div>
                     )
                 })
