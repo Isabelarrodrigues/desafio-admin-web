@@ -16,7 +16,7 @@ Os operadores trabalham em 2 times diferentes, time n1 e n2. Para isso a API dis
 Lembre-se que o time de back-end já criou uma API que fornecerá as informações necessárias para todo o desenvolvimento.
 
 ## Desafio
-Alguns pontos foram enumerados para que consigamos fornecer ao nosso operador um sistema robusto de administração de Cartao de crédito. O projeto conta com uma API (servidor) que funcionará na porta 3001, nao será necessário desenvolver uma nova. Voce deve focar na criacao da Aplicacao front (Client) que utilizará as rotas disponíveis.
+Alguns pontos foram enumerados para que consigamos fornecer ao nosso operador um sistema robusto de administração de Cartao de crédito. O desafio conta com uma API (servidor) que funcionará na porta 3001. Dessa forma, não será necessário desenvolver uma nova. Você deve focar na criação da aplicação front (Client) que utilizará as rotas disponíveis e rodará na porta 3000.
 
 ### Parte 1 - O Analista deve ser capaz de:
 > Recursos do contexto **users**, **cards**, **audits**
