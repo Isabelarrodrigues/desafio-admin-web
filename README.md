@@ -16,7 +16,7 @@ Os operadores trabalham em 2 times diferentes, time n1 e n2. Para isso a API dis
 Lembre-se que o time de back-end já criou uma API que fornecerá as informações necessárias para todo o desenvolvimento.
 
 ## Desafio
-Alguns pontos foram enumerados para que consigamos fornecer ao nosso operador um sistema robusto de administração de Cartao de crédito.
+Alguns pontos foram enumerados para que consigamos fornecer ao nosso operador um sistema robusto de administração de Cartao de crédito. O projeto conta com uma API (servidor) que funcionará na porta 3001, nao será necessário desenvolver uma nova. Voce deve focar na criacao da Aplicacao front (Client) que utilizará as rotas disponíveis.
 
 ### Parte 1 - O Analista deve ser capaz de:
 > Recursos do contexto **users**, **cards**, **audits**
@@ -41,7 +41,7 @@ Alguns pontos foram enumerados para que consigamos fornecer ao nosso operador um
 2. **Excluir** e **Criar** um pedido de cartão. A acao de excluir, remove um elemento por inteiro e a de criar, gera um novo pedido de cartao com status "requested. Um cartao só pode ser criado para usuários que tenham "card" em enabledFeatures. A rota "/features" pode ser utilizada como auxilio para entender cada enabledFeatures do usuário.
  - POST http://localhost:3001/cards
  - DELETE http://localhost:3001/cards/:id
- - GET http://localhost:3000/features
+ - GET http://localhost:3001/features
 3. **Atualizar** o "nome impresso" do usuário de um pedido de cartão.
  - PUT http://localhost:3001/cards/:id
 4. Analista que tem somente a role **n1 nao deve ser capaz de visualizar** auditoria.
