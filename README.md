@@ -22,14 +22,14 @@ Alguns pontos foram enumerados para que consigamos fornecer ao nosso operador um
 > Recursos do contexto **users**, **cards**, **audits**
 
 1. **Visualizar** usuários da base.
-  - GET http://localhost:3001/users
+  - GET http://localhost:3001/api/users
 2. **Visualizar** cartoes disponíveis.
-  - GET http://localhost:3001/cards
+  - GET http://localhost:3001/api/cards
 3. **Visualizar** Auditoria. Esta deve conter o histórico de ações do operador (Item 4).
-  - GET http://localhost:3001/audits
+  - GET http://localhost:3001/api/audits
 4. **Aprovar**, **rejeitar** um pedido de cartão. Essas acoes alteram somente o status do pedido e devem gerar logs em auditoria. O status inicial de um pedido é "requested", mas pode ser alterado para "approved" ou "rejected".
-  - PUT http://localhost:3001/cards/:id
-  - POST http://localhost:3001/audits
+  - PUT http://localhost:3001/api/cards/:id
+  - POST http://localhost:3001/api/audits
  
 <br />
 
@@ -37,13 +37,13 @@ Alguns pontos foram enumerados para que consigamos fornecer ao nosso operador um
 > Recursos do contexto **features**, **analysts**
 
 1. **Entrar** na aplicacao com email e senha. Utilizar a rota "/analysts" como auxílio e fazer a validação direto no client, ou seja a sessao do usuário deverá ser implementada no front e pode seguir um caminho simples sem problemas. A tela de login deverá conter os campos email e senha.
- - GET http://localhost:3001/analysts
+ - GET http://localhost:3001/api/analysts
 2. **Excluir** e **Criar** um pedido de cartão. A acao de excluir, remove um elemento por inteiro e a de criar, gera um novo pedido de cartao com status "requested. Um cartao só pode ser criado para usuários que tenham "card" em enabledFeatures. A rota "/features" pode ser utilizada como auxilio para entender cada enabledFeatures do usuário.
- - POST http://localhost:3001/cards
- - DELETE http://localhost:3001/cards/:id
- - GET http://localhost:3001/features
+ - POST http://localhost:3001/api/cards
+ - DELETE http://localhost:3001/api/cards/:id
+ - GET http://localhost:3001/api/features
 3. **Atualizar** o "nome impresso" do usuário de um pedido de cartão.
- - PUT http://localhost:3001/cards/:id
+ - PUT http://localhost:3001/api/cards/:id
 4. Analista que tem somente a role **n1 nao deve ser capaz de visualizar** auditoria.
 5. Analista que tem somente a role **n1 nao deve ser capaz de visualizar** salário base do usuário.
 6. Analista que tem somente a role **n1 nao deve ser capaz de visualizar** limite do cartão de crédito dos usuários.
@@ -81,11 +81,11 @@ output:
 
 // Api
   Resources:
-  http://localhost:3001/users
-  http://localhost:3001/analysts
-  http://localhost:3001/cards
-  http://localhost:3001/features
-  http://localhost:3001/audits
+  http://localhost:3001/api/users
+  http://localhost:3001/api/analysts
+  http://localhost:3001/api/cards
+  http://localhost:3001/api/features
+  http://localhost:3001/api/audits
 ```
 
 ### **Estrutura de dados**
