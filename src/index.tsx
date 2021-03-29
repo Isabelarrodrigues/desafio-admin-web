@@ -4,6 +4,7 @@ import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import Dashboard from './components/DashBoard/DashBoard'
 import Users from './components/Users/Users'
 import Cards from './components/Cards/Cards'
 
@@ -12,6 +13,9 @@ ReactDOM.render(
     <Switch>
       <Route exact path="/">
         <App />
+      </Route>
+      <Route exact path="/dashboard">
+        <Dashboard />
       </Route>
       <Route path="/users">
         <Users />
