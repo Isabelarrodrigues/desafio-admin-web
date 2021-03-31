@@ -1,11 +1,13 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
+import { UserContext } from '../../context'
 import ReqUsers from '../Model/request'
 import styled from 'styled-components'
+import LoginError from '../LoginError/LoginError'
 
 const StyledAudit = styled.div`
     background-color: #d1ebe0;
     border-radius: 10px;
-    margin: 32px auto;
+    margin: 64px auto;
     width: 600px;
     padding: 16px 24px;
     
@@ -37,8 +39,10 @@ function Audits() {
             .then(data => setAudits(data))
     }, [])
 
-    return (
-        <section>
+    const {user}: any = useContext(UserContext)
+
+    return user.auth ? (
+        <section style={{ margin: '20px '}}>
             {audits ? 
                 (audits.map((item: any) => {
                     let statusAfter
@@ -100,7 +104,7 @@ function Audits() {
                 )
             : null}
         </section>
-    )
+    ) : <LoginError />
 }
 
 export default Audits

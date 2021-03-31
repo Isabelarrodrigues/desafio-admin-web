@@ -5,34 +5,36 @@ import App from './App'
 import reportWebVitals from './reportWebVitals'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { UserProvider } from './context'
-import Dashboard from './components/DashBoard/DashBoard'
+import Header from './components/Header/Header'
 import Users from './components/Users/Users'
 import Cards from './components/Cards/Cards'
 import Audits from './components/Audits/Audits'
+import Dashboard from './components/DashBoard/DashBoard'
 
 ReactDOM.render(
   <BrowserRouter>
-    
+    <UserProvider>
       <Switch>
         <Route exact path="/">
-        <UserProvider>
           <App />
-        </UserProvider>
         </Route>
-        <Route exact path="/dashboard">
+        <Route path="/dashboard">
           <Dashboard />
         </Route>
         <Route path="/users">
+          <Header />
           <Users />
         </Route>
         <Route path="/cards">
+          <Header />
           <Cards />
         </Route>
         <Route path="/audits">
+          <Header />
           <Audits />
         </Route>
       </Switch>
-    
+      </UserProvider>
   </BrowserRouter>,
   document.getElementById('root')
 );

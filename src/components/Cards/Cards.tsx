@@ -1,7 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import request from '../Model/request'
 import styled from 'styled-components'
 import logo from '../../img/logo-stone.png'
+import Header from '../Header/Header'
+import { UserContext } from '../../context'
+import LoginError from '../LoginError/LoginError'
+
 
 interface CardsTypes {
     createdAt: string
@@ -222,8 +226,11 @@ function Cards() {
         })
     }
 
-    return (
+    const { user }: any = useContext(UserContext);
+
+    return user.auth ? (
         <div>
+            <Header />
             <h1>Rota de Cartões</h1>
             {cards ? (
                 cards.map((index: CardsTypes) => {
@@ -277,7 +284,7 @@ function Cards() {
                         }
 
                     return (
-                        <div className="containerCard" style={{margin: '0 auto'}}>
+                        <div style={{margin: '20px auto'}}>
                         <DivCard>
                             <div className="card" key={index.id} style={{border: '1px solid lightblue'}}>
                                 <img src={logo} style={{width: '85px'}} alt="Logo Stone"/>
@@ -310,7 +317,7 @@ function Cards() {
                 })
                 ) : 'carregando...'}
         </div>
-    )
+    ) : <LoginError />
 }
 
 export default Cards

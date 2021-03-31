@@ -1,5 +1,17 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import request from '../Model/request'
+import styled from 'styled-components'
+import LoginError from '../LoginError/LoginError'
+import { UserContext } from '../../context'
+
+const StyledUser = styled.div`
+    background-color: #d1ebe0;
+    border-radius: 10px;
+    margin: 20px auto;
+    width: 640px;
+    padding: 16px;
+    overflow-x: clip;
+`
 
 interface UsersTypes {
     name: string
@@ -60,13 +72,14 @@ function Users() {
     }
 
     const documentValidation = (docNumber: number) => {
-        // const regexCPF : RegExp = /^[0-9]{3}.?[0-9]{3}.?[0-9]{3}-?[0-9]{2}/
         const CPFString = docNumber.toString()
         const CPFNumber = CPFString.replace(/(\d{3})?(\d{3})?(\d{3})?(\d{2})/, "$1.$2.$3-$4")
         return CPFNumber
     }
+    
+    const {user}: any = useContext(UserContext)
 
-    return (
+    return user.auth ? (
         <div>
             <h1>Rota de Usuários</h1>
             {users ? (
@@ -78,7 +91,7 @@ function Users() {
 
                     if (index.name) { 
                         return (
-                            <div key={index.id} style={{border: '1px solid lightblue'}}>
+                            <StyledUser key={index.id} style={{border: '1px solid lightblue'}}>
                                 <p>{`${nameValidation(index.name)}`}</p>
                                 <p>{`${emailUser}`}</p>
                                 <p>{`Data de Nascimento: ${brazillianBirthDate}`}</p>
@@ -88,13 +101,13 @@ function Users() {
                                 <p>{`CEP: ${index.address.postalCode}`}</p>
                                 <p>{`CPF: ${documentValidation(index.document)}`}</p>
                                 <p>{`Salário: ${(index.salaryBase / 100).toLocaleString('pt-BR')}`}</p>
-                            </div>
+                            </StyledUser>
                         )
                     }
                 })
                 ) : 'carregando...'}
         </div>
-    )
+    ) : <LoginError />
 }
 
 export default Users

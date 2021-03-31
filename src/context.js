@@ -1,37 +1,6 @@
 import React, { createContext, useState, useEffect } from 'react'
 import styled from 'styled-components'
-
-// export const UserContext = createContext({ email: '', password: '', auth: false})
-
-// export const UserProvider = ({ children }) => {
-//     const [user, setUser] = useState({
-//         email: '',
-//         password: '',
-//         auth: false
-//     })
-
-//     const login = (email, password) => {
-//         setUser(user => ({
-//             email: email,
-//             password: password,
-//             auth: true
-//         }))
-//     }
-
-//     const logout = () => {
-//         setUser(user => ({
-//             email: '',
-//             password: '',
-//             auth: false
-//         }))
-//     }
-
-//     return (
-//         <UserContext.Provider value={{ user, login, logout }}>
-//             {children}
-//         </UserContext.Provider>
-//     )    
-// }
+import { Redirect } from 'react-router-dom'
 
 // @function  UserContext
 export const UserContext = createContext({ email: '', password: '', auth: false });
@@ -54,7 +23,8 @@ export const UserProvider = ({ children }) => {
         email: '',
         password: '',
         auth: false,
-    }));
+    }))
+    return <Redirect to="/" />;
   };
 
   return (
@@ -112,6 +82,8 @@ const LoginStyled = styled.aside`
         color: #fafafa;
         font-size: .9rem;
         margin-bottom: 50px;
+        cursor: pointer;
+        outline: none;
     }
 `
 
