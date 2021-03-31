@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import ReqUsers from '../Model/ReqUsers'
+import request from '../Model/request'
 
 interface UsersTypes {
     name: string
@@ -27,7 +27,7 @@ function Users() {
 
     useEffect(
     () => {
-        ReqUsers('users')
+        request('users')
             .then(data => setUsers(data))
     }, [])
 

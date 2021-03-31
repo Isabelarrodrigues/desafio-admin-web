@@ -1,4 +1,4 @@
-export default async function ReqUsers(path) {
+export default async function request(path) {
     const url =
     process.env.NODE_ENV === "production"
       ? "/api"

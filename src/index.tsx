@@ -7,6 +7,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Dashboard from './components/DashBoard/DashBoard'
 import Users from './components/Users/Users'
 import Cards from './components/Cards/Cards'
+import Audits from './components/Audits/Audits'
 
 ReactDOM.render(
   <BrowserRouter>
@@ -22,6 +23,9 @@ ReactDOM.render(
       </Route>
       <Route path="/cards">
         <Cards />
+      </Route>
+      <Route path="/audits">
+        <Audits />
       </Route>
     </Switch>
   </BrowserRouter>,

@@ -8,55 +8,55 @@ interface LoginTypes {
     item: any
 }
 
-    const LoginStyled = styled.aside`
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 45%;
-        justify-content: center;
-        height: 100vh;
-        background: #02C06C;
-        background: linear-gradient(45deg, rgba(0,131,73,1) 0%, rgba(0,177,99,1) 50%, rgba(2,192,108,1) 100%);
+const LoginStyled = styled.aside`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 45%;
+    justify-content: center;
+    height: 100vh;
+    background: #02C06C;
+    background: linear-gradient(45deg, rgba(0,131,73,1) 0%, rgba(0,177,99,1) 50%, rgba(2,192,108,1) 100%);
 
-        h1 {
-            font-size: 32px;
-            text-transform: uppercase;
-            padding: 0;
-            line-height: 1;
-        }
+    h1 {
+        font-size: 32px;
+        text-transform: uppercase;
+        padding: 0;
+        line-height: 1;
+    }
 
-        h2 {
-            font-size: 24px;
-            font-weight: 600;
-            color: #181818;
-        }
+    h2 {
+        font-size: 24px;
+        font-weight: 600;
+        color: #181818;
+    }
 
-        p {
-            color: #181818;
-            margin: 3px 0 8px;
-            font-weight: 500;
-        }
-        input {
-            width: 70%;
-            border: none;
-            height: 40px;
-            margin-bottom: 16px;
-            border-radius: 20px;
-            padding-left: 20px;
-            outline: none;
-        }
+    p {
+        color: #181818;
+        margin: 3px 0 8px;
+        font-weight: 500;
+    }
+    input {
+        width: 70%;
+        border: none;
+        height: 40px;
+        margin-bottom: 16px;
+        border-radius: 20px;
+        padding-left: 20px;
+        outline: none;
+    }
 
-        button {
-            width: 50%;
-            border: none;
-            border-radius: 20px;
-            height: 32px;
-            background-color: #181818;
-            color: #fafafa;
-            font-size: .9rem;
-            margin-bottom: 50px;
-        }
-    `
+    button {
+        width: 50%;
+        border: none;
+        border-radius: 20px;
+        height: 32px;
+        background-color: #181818;
+        color: #fafafa;
+        font-size: .9rem;
+        margin-bottom: 50px;
+    }
+`
 function Login() {
     const [userData, setUserData] = useState([])
     const [email, setEmail] = useState('')
