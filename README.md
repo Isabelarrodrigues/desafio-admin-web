@@ -16,7 +16,7 @@ Os operadores trabalham em 2 times diferentes, time n1 e n2. Para isso a API dis
 Lembre-se que o time de back-end já criou uma API que fornecerá as informações necessárias para todo o desenvolvimento.
 
 ## Desafio
-Alguns pontos foram enumerados para que consigamos fornecer ao nosso operador um sistema robusto de administração de Cartao de crédito. O desafio conta com uma API (servidor) que funcionará na porta 3001. Dessa forma, não será necessário desenvolver uma nova. Você deve focar na criação da aplicação front (Client) que utilizará as rotas disponíveis e rodará na porta 3000.
+Alguns pontos foram enumerados para que consigamos fornecer ao nosso operador um sistema robusto de administração de Cartão de crédito. O desafio conta com uma API (servidor) que funcionará na porta 3001. Dessa forma, não será necessário desenvolver uma nova. Você deve focar na criação da aplicação front (Client) que utilizará as rotas disponíveis e rodará na porta 3000.
 
 ### Parte 1 - O Analista deve ser capaz de:
 > Recursos do contexto **users**, **cards**, **audits**
@@ -27,27 +27,27 @@ Alguns pontos foram enumerados para que consigamos fornecer ao nosso operador um
   - GET http://localhost:3001/api/cards
 3. **Visualizar** Auditoria. Esta deve conter o histórico de ações do operador (Item 4).
   - GET http://localhost:3001/api/audits
-4. **Aprovar**, **rejeitar** um pedido de cartão. Essas ações alteram somente o status do pedido e devem gerar logs em auditoria. O status inicial de um pedido é "requested", mas pode ser alterado para "approved" ou "rejected".
+4. **Aprovar** e **rejeitar** um pedido de cartão. Essas ações alteram o status do pedido e devem gerar logs em auditoria. O status inicial de um pedido é "requested", mas pode ser alterado para "approved" ou "rejected". Não deve ser possível alterar o status de um cartão mais de uma vez.
   - PUT http://localhost:3001/api/cards/:id
   - POST http://localhost:3001/api/audits
  
 <br />
 
-### Parte 2 - O Analista deve ser capaz de: **(Recursos adicionais desejaveis mas nao requeridos)**
+### Parte 2 - O Analista deve ser capaz de: **(Recursos adicionais desejaveis mas não requeridos)**
 > Recursos do contexto **features**, **analysts**
 
 1. **Entrar** na aplicação com email e senha. Utilizar a rota "/analysts" como auxílio e fazer a validação direto no client, ou seja a sessao do usuário deverá ser implementada no front e pode seguir um caminho simples sem problemas. A tela de login deverá conter os campos email e senha.
  - GET http://localhost:3001/api/analysts
-2. **Excluir** e **Criar** um pedido de cartão. A ação de excluir, remove um elemento por inteiro, e a de criar gera um novo pedido de cartao com status "requested. Ambas as ações devem gerar logs em auditoria. Um cartao só pode ser criado para usuários que tenham "card" em enabledFeatures. A rota "/features" pode ser utilizada como auxilio para entender cada enabledFeatures do usuário.
+2. **Excluir** e **Criar** um pedido de cartão. A ação de excluir, remove um elemento por inteiro, e a de criar gera um novo pedido de cartão com status "requested. Ambas as ações devem gerar logs em auditoria. Um cartão só pode ser criado para usuários que tenham "card" em enabledFeatures. A rota "/features" pode ser utilizada como auxilio para entender cada enabledFeatures do usuário.
  - POST http://localhost:3001/api/cards
  - DELETE http://localhost:3001/api/cards/:id
  - GET http://localhost:3001/api/features
 3. **Atualizar** o "nome impresso" do usuário de um pedido de cartão.
  - PUT http://localhost:3001/api/cards/:id
-4. Analista que tem somente a role **n1 nao deve ser capaz de visualizar** auditoria.
-5. Analista que tem somente a role **n1 nao deve ser capaz de visualizar** salário base do usuário.
-6. Analista que tem somente a role **n1 nao deve ser capaz de visualizar** limite do cartão de crédito dos usuários.
-7. Analista que tem somente a role **n1 nao deve ser capaz de excluir** um pedido de cartão.
+4. Analista que tem somente a role **n1 não deve ser capaz de visualizar** auditoria.
+5. Analista que tem somente a role **n1 não deve ser capaz de visualizar** salário base do usuário.
+6. Analista que tem somente a role **n1 não deve ser capaz de visualizar** limite do cartão de crédito dos usuários.
+7. Analista que tem somente a role **n1 não deve ser capaz de excluir** um pedido de cartão.
 8. O operador deve ser capaz de visualizar em auditoria o nome do usuário que executou a ação. Utilizar o campo requestedBy, que representa o identificador do usuário que executou tal ação.
 9. **Sair** da aplicação. Redirecionar o usuário para tela de login. Voce deverá remover a sessao do usuário no front e direcioná-lo para a tela de login.
 
@@ -138,7 +138,7 @@ output:
   "metadatas": {
     "name": "Nome impresso no cartão usuário",
     "digits": "Dígitos do cartão",
-    "limit": "Limite do cartao de crédito em reais"
+    "limit": "Limite do cartão de crédito em reais"
   }
 }
 ```
@@ -167,7 +167,7 @@ output:
   "createdAt": "Data que esta ação foi executada",
   "type": "Nome da ação executada pelo usuário, esse campo pode ser definido por voce, ex: cartao_removido, status_alterado",
   "before": "Valor antigo, antes da alteração",
-  "after": "Valor novo, o que foi alterado, também pode conter todos os campos do cartao que foi alterado por exemplo",
+  "after": "Valor novo, o que foi alterado, também pode conter todos os campos do cartão que foi alterado por exemplo",
   "requestedBy": "Id do analyst que executou a ação",
 }
 ```
