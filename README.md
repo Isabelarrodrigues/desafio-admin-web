@@ -54,7 +54,7 @@ Alguns pontos foram enumerados para que consigamos fornecer ao nosso operador um
 <br />
 
 Observações
-- Tente exibir informações que acredite que sejam relevantes para o analista, no caso de usuário, é essencial exibir nome, documento e email, por exemplo.
+- Tente exibir informações que acredite que sejam relevantes para o analista. No caso de usuário, é essencial exibir nome, documento e email, por exemplo.
 - Toda operação gera um novo item na lista de auditoria, ou seja tudo deve ser rastreável. A sua aplicação deverá fornecer uma área para auditoria e usar a rota "/audits" existente no desafio.
 - Analista com roles (n1 e n2) ou (n2) é resumida em n2. Podemos inferir que roles de n2 implicam em mais responsabilidades. Uma role pode ser entendido como um grupo de acesso.
 - Este projeto conta com uma aplicação cliente servidor. O servidor disponibilizará as rotas necessárias para todo o desenvolvimento, tanto da parte 1 quanto da parte 2. A aplicação front presente conta com um App start do react que voce deverá substituir pelo sistema elaborado no desafio.
@@ -186,7 +186,7 @@ Fique à vontade para definir seu próprio layout. Mas vamos deixar algumas dica
 
 - O layout precisa "escalar", ou seja, qual a visão de futuro para o App caso precise adicionar mais informações?
 - Não se prenda a algum layout específico que tenha encontrado pela internet, deixe sua criatividade tomar conta.
-- O tratamento dos campos é por sua conta, por exemplo CPF: "58395591055" -> "583.955.910-55" 
+- O tratamento dos campos é por sua conta, por exemplo CPF: "58395591055" -> "583.955.910-55".
 
 ### **Entrega**
 
