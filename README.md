@@ -9,7 +9,7 @@ O seu desafio será construir uma aplicação de gestão financeira para o mundo
 
 A Rocha terá você como desenvolvedor responsável pelas novas funcionalidades que a mesma deverá soltar no mercado ainda este ano. A empresa tem usuários em sua base de dados e agora vai começar a oferecer cartão de crédito para eles. A Rocha conta com times que fazem a análise dos usuários para a liberação do cartão de crédito, mas o sistema que automatizará todo o processo ainda não existe. Os nossos futuros clientes, os análistas, usam uma planilha para controle interno. Essa planilha controla os cartoes "Solicitados", "Aprovados", "Rejeitados" e,  também é utilizada para auditoria das ações dos próprios analistas.
 
-Precisamos que a nossa aplicação de gestão seja capaz de fornecer aos nossos analistas as informações necessárias sobre os usuários da base e as solicitações de cartão. A plataforma deverá fornecer ao operador (Analista) meios de **aprovar**, **rejeitar** ou **excluir** os pedidos de cartão e de acompanhar o histórico das acoes que foram executadas.
+Precisamos que a nossa aplicação de gestão seja capaz de fornecer aos nossos analistas as informações necessárias sobre os usuários da base e as solicitações de cartão. A plataforma deverá fornecer ao operador (Analista) meios de **aprovar**, **rejeitar** ou **excluir** os pedidos de cartão e de acompanhar o histórico das ações que foram executadas.
 
 Os operadores trabalham em 2 times diferentes, time n1 e n2. Para isso a API disponibiliza os roles de acesso para cada analista cadastrado, dessa forma será possível exibir somente informações relevantes para cada time e manter a segurança da informação.
 
@@ -27,7 +27,7 @@ Alguns pontos foram enumerados para que consigamos fornecer ao nosso operador um
   - GET http://localhost:3001/api/cards
 3. **Visualizar** Auditoria. Esta deve conter o histórico de ações do operador (Item 4).
   - GET http://localhost:3001/api/audits
-4. **Aprovar**, **rejeitar** um pedido de cartão. Essas acoes alteram somente o status do pedido e devem gerar logs em auditoria. O status inicial de um pedido é "requested", mas pode ser alterado para "approved" ou "rejected".
+4. **Aprovar**, **rejeitar** um pedido de cartão. Essas ações alteram somente o status do pedido e devem gerar logs em auditoria. O status inicial de um pedido é "requested", mas pode ser alterado para "approved" ou "rejected".
   - PUT http://localhost:3001/api/cards/:id
   - POST http://localhost:3001/api/audits
  
@@ -36,9 +36,9 @@ Alguns pontos foram enumerados para que consigamos fornecer ao nosso operador um
 ### Parte 2 - O Analista deve ser capaz de: **(Recursos adicionais desejaveis mas nao requeridos)**
 > Recursos do contexto **features**, **analysts**
 
-1. **Entrar** na aplicacao com email e senha. Utilizar a rota "/analysts" como auxílio e fazer a validação direto no client, ou seja a sessao do usuário deverá ser implementada no front e pode seguir um caminho simples sem problemas. A tela de login deverá conter os campos email e senha.
+1. **Entrar** na aplicação com email e senha. Utilizar a rota "/analysts" como auxílio e fazer a validação direto no client, ou seja a sessao do usuário deverá ser implementada no front e pode seguir um caminho simples sem problemas. A tela de login deverá conter os campos email e senha.
  - GET http://localhost:3001/api/analysts
-2. **Excluir** e **Criar** um pedido de cartão. A acao de excluir, remove um elemento por inteiro e a de criar, gera um novo pedido de cartao com status "requested. Um cartao só pode ser criado para usuários que tenham "card" em enabledFeatures. A rota "/features" pode ser utilizada como auxilio para entender cada enabledFeatures do usuário.
+2. **Excluir** e **Criar** um pedido de cartão. A ação de excluir, remove um elemento por inteiro, e a de criar gera um novo pedido de cartao com status "requested. Ambas as ações devem gerar logs em auditoria. Um cartao só pode ser criado para usuários que tenham "card" em enabledFeatures. A rota "/features" pode ser utilizada como auxilio para entender cada enabledFeatures do usuário.
  - POST http://localhost:3001/api/cards
  - DELETE http://localhost:3001/api/cards/:id
  - GET http://localhost:3001/api/features
@@ -48,16 +48,16 @@ Alguns pontos foram enumerados para que consigamos fornecer ao nosso operador um
 5. Analista que tem somente a role **n1 nao deve ser capaz de visualizar** salário base do usuário.
 6. Analista que tem somente a role **n1 nao deve ser capaz de visualizar** limite do cartão de crédito dos usuários.
 7. Analista que tem somente a role **n1 nao deve ser capaz de excluir** um pedido de cartão.
-8. O operador deve ser capaz de visualizar em auditoria o nome do usuário que executou a ação. Utilizar o campo requestedBy, que representa o identificador do usuário que executou tal acao.
+8. O operador deve ser capaz de visualizar em auditoria o nome do usuário que executou a ação. Utilizar o campo requestedBy, que representa o identificador do usuário que executou tal ação.
 9. **Sair** da aplicação. Redirecionar o usuário para tela de login. Voce deverá remover a sessao do usuário no front e direcioná-lo para a tela de login.
 
 <br />
 
 Observações
-- Tente exibir informacoes que acredite que sejam relevantes para o analista, no caso de usuário, é essencial exibir nome, documento e email, por exemplo.
-- Toda operacao gera um novo item na lista de auditoria, ou seja tudo deve ser rastreável. A sua aplicação deverá fornecer uma área para auditoria e usar a rota "/audits" existente no desafio.
+- Tente exibir informações que acredite que sejam relevantes para o analista, no caso de usuário, é essencial exibir nome, documento e email, por exemplo.
+- Toda operação gera um novo item na lista de auditoria, ou seja tudo deve ser rastreável. A sua aplicação deverá fornecer uma área para auditoria e usar a rota "/audits" existente no desafio.
 - Analista com roles (n1 e n2) ou (n2) é resumida em n2. Podemos inferir que roles de n2 implicam em mais responsabilidades. Uma role pode ser entendido como um grupo de acesso.
-- Este projeto conta com uma aplicacao cliente servidor. O servidor disponibilizará as rotas necessárias para todo o desenvolvimento, tanto da parte 1 quanto da parte 2. A aplicacao front presente conta com um App start do react que voce deverá substituir pelo sistema elaborado no desafio.
+- Este projeto conta com uma aplicação cliente servidor. O servidor disponibilizará as rotas necessárias para todo o desenvolvimento, tanto da parte 1 quanto da parte 2. A aplicação front presente conta com um App start do react que voce deverá substituir pelo sistema elaborado no desafio.
 
 ## Projeto
 
@@ -201,7 +201,7 @@ Fique à vontade para definir seu próprio layout. Mas vamos deixar algumas dica
 - O código está de acordo com o guia de estilo da linguagem?
 - O código está bem estruturado?
 - O código faz bom uso de _Design Patterns_?
-- A separacao dos componentes visam atender o modelo implementado?
+- A separação dos componentes visam atender o modelo implementado?
 
 ### **Documentação**
 
