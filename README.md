@@ -178,7 +178,7 @@ Observações
 - Uma feature habilitada - que é retornada dentro de usuário - diz ao operador quais recursos aquele usuário tem disponível.
 
 ### **Desenvolvimento**
-Realize um Fork deste projeto para começar o seu desafio. O projeto do desafio conta com react-scripts e Typescript para lhe ajudar durante o desenvolvimento.
+Faça um clone deste projeto para começar o seu desafio. O mesmo deve estar presente em seu repositório pessoal mas com **acesso privado**. O projeto do desafio conta com react-scripts e Typescript para lhe ajudar durante o desenvolvimento.
 
 ### **Layout**
 
