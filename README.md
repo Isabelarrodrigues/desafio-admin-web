@@ -33,7 +33,7 @@ Alguns pontos foram enumerados para que consigamos fornecer ao nosso operador um
  
 <br />
 
-### Parte 2 - O Analista deve ser capaz de: **(Recursos adicionais desejaveis mas não requeridos)**
+### Parte 2 - O Analista deve ser capaz de: **(Recursos adicionais)**
 > Recursos do contexto **features**, **analysts**
 
 1. **Entrar** na aplicação com email e senha. Utilizar a rota "/analysts" como auxílio e fazer a validação direto no client, ou seja a sessao do usuário deverá ser implementada no front e pode seguir um caminho simples sem problemas. A tela de login deverá conter os campos email e senha.
