@@ -213,7 +213,7 @@ Fique à vontade para definir seu próprio layout. Mas vamos deixar algumas dica
 
 ### **Deploy**
 
-- Publique seu código no seu perfil no GitHub
+- Publique seu código no seu perfil no GitHub de forma privada
 - Publique sua aplicação [heroku](https://www.heroku.com/)
   - Crie uma conta no Heroku 
   - Habilite o [Heroku Github Action](https://github.com/marketplace/actions/deploy-to-heroku)
