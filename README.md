@@ -213,17 +213,17 @@ Fique à vontade para definir seu próprio layout. Mas vamos deixar algumas dica
 
 ### **Deploy**
 
-- Publique seu código no seu perfil no GitHub de forma privada
+- Publique seu código no seu perfil no GitHub de forma privada.
 - Publique sua aplicação [heroku](https://www.heroku.com/)
-  - Crie uma conta no Heroku 
-  - Habilite o [Heroku Github Action](https://github.com/marketplace/actions/deploy-to-heroku)
-  - Edite o template em "workflows/node.js.yml" para realizar o deploy de forma automática
+  - Crie uma conta no Heroku.
+  - Habilite o [Heroku Github Action](https://github.com/marketplace/actions/deploy-to-heroku).
+  - Edite o template em "workflows/node.js.yml" para realizar o deploy de forma automática.
 
 ### **Outras informações**
 
-- Utilize React + TypeScript
-- Ferramentas como BootStrap, Material Ui, MaterializeCSS e React-Admin podem ser utilizadas
-- Testes são legais, mas não são obrigatórios
+- Utilize React + TypeScript.
+- Ferramentas como BootStrap, Material Ui, MaterializeCSS e React-Admin podem ser utilizadas.
+- A implementação do Testes será vista como um bônus.
 
 ### **Material de Estudo**
 
