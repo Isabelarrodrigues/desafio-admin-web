@@ -221,14 +221,13 @@ Fique à vontade para definir seu próprio layout. Mas vamos deixar algumas dica
 
 ### **Outras informações**
 
-- Utilize React + TypeScript ou JavaScript
+- Utilize React + TypeScript
 - Ferramentas como BootStrap, Material Ui, MaterializeCSS e React-Admin podem ser utilizadas
 - Testes são legais, mas não são obrigatórios
 
 ### **Material de Estudo**
 
 - [Boas Práticas de commit](https://github.com/stone-payments/stoneco-best-practices/blob/master/gitStyleGuide/README_pt.md)
-- [Airbnb Javascript](https://github.com/airbnb/javascript)
 - [The TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html)
 - [React-Admin](https://marmelab.com/react-admin/)
 - [REST](https://pt.wikipedia.org/wiki/REST)
